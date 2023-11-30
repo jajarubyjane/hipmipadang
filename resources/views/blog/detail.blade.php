@@ -1,6 +1,6 @@
 @extends('blog.main')
 @section('title')
-    Detail Berita HIPMI Padang
+    Detail Berita - HIPMI Padang
 @endsection
 
 @section('content')
@@ -25,7 +25,12 @@
                         <div class="blog-item border h-100 p-4">
                             <img class="img-fluid mb-4" src="{{ asset('assets/images/' . $berita->gambar_berita) }}"
                                 alt="" width="100%">
-                                <h1 class="mb-4">{{$berita->judul_berita}}</h1>
+                            <h1 class="mb-4">{{ $berita->judul_berita }}</h1>
+                            @php
+                                $tanggal_berita = date('d F Y', strtotime($berita->tanggal_berita));
+                            @endphp
+                            <small><i
+                                    class="far fa-calendar-alt text-warning me-2"></i>{{ $tanggal_berita }}</small>
                             <p class="mb-4">{!! $berita->isi_berita !!}</p>
                         </div>
                     </div>
@@ -34,7 +39,7 @@
                 {{-- Sidebar --}}
                 <div class="col-md-4">
                     <!-- Category -->
-                    <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                    {{-- <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h4 class="mb-0">Kategori</h4>
                         </div>
@@ -46,7 +51,7 @@
                                         class="bi bi-arrow-right me-2"></i>{{ $data->nama_kategori }}</a>
                             @endforeach
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- Recent Post -->
                     <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
@@ -58,7 +63,8 @@
                             <div class="d-flex rounded overflow-hidden mb-3">
                                 <img class="img-fluid" src="{{ asset('assets/images/' . $data->gambar_berita) }}"
                                     style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                                <a href="{{route('blog.detail', $data->slug)}}" class="h6 fw-semi-bold d-flex align-items-center px-3 mb-0"
+                                <a href="{{ route('blog.detail', $data->slug) }}"
+                                    class="h6 fw-semi-bold d-flex align-items-center px-3 mb-0"
                                     style="background: rgba(128, 128, 128, 0.1);">{{ $data->judul_berita }}</a>
                             </div>
                         @endforeach
@@ -92,7 +98,8 @@
                             <h4 class="mb-0">Kata Kunci</h4>
                         </div>
                         <div class="d-flex flex-wrap m-n1">
-                            <a href="" class="btn m-1" style="background: rgba(128, 128, 128, 0.1); color: black;">HIPMI
+                            <a href="" class="btn m-1"
+                                style="background: rgba(128, 128, 128, 0.1); color: black;">HIPMI
                                 Padang</a>
                             <a href="" class="btn m-1"
                                 style="background: rgba(128, 128, 128, 0.1); color: black;">Kewirausahaan</a>
@@ -110,7 +117,6 @@
                             <p>Vero sea et accusam justo dolor accusam lorem consetetur, dolores sit amet sit dolor clita
                                 kasd justo, diam accusam no sea ut tempor magna takimata, amet sit et diam dolor ipsum amet
                                 diam</p>
-                            <a href="" class="btn py-2 px-4 text-white" style="background: black;">Read More</a>
                         </div>
                     </div>
                 </div>

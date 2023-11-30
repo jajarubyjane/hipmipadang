@@ -13,7 +13,7 @@
             <a href="{{ route('admin.tambah.anggota') }}" class="btn btn-dark mb-4">
                 <i class="fas fa-plus"></i> Anggota
             </a>
-            <a href="{{route('admin.tambah.jabatan')}}" class="btn btn-dark mb-4">
+            <a href="{{ route('admin.tambah.jabatan') }}" class="btn btn-dark mb-4">
                 <i class="fas fa-plus"></i> Jabatan
             </a>
             <a href="#" class="btn btn-dark mb-4">
@@ -51,10 +51,38 @@
                                 <td><img src="{{ asset('assets/images/' . $data->gambar_anggota) }}" width="100px"
                                         alt=""></td>
                                 <td>
-                                    <a href="{{ route('admin.ubah.anggota', $data->id_anggota) }}"
-                                        class="btn btn-success"> <i class="fas fa-edit"></i> Ubah</a>
-                                    <a href="{{ route('admin.hapus.anggota', $data->id_anggota) }}"
-                                        class="btn btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
+                                    <a href="{{ route('admin.ubah.anggota', $data->id_anggota) }}" class="btn btn-success">
+                                        <i class="fas fa-edit"></i> Ubah</a>
+                                    <form id="alert-hapus" method="post" class="d-inline">
+                                        <script>
+                                            function konfirmasiHapus(route, id) {
+
+
+                                                Swal.fire({
+                                                    title: "Yakin ingin mengahapus data?",
+                                                    text: "Klik cancel jika tidak ingin menghapus data!",
+                                                    icon: "warning",
+                                                    showCancelButton: true,
+                                                    confirmButtonColor: "#3085d6",
+                                                    cancelButtonColor: "#d33",
+                                                    confirmButtonText: "Ya, Hapus Data!"
+                                                }).
+                                                then((result) => {
+                                                    if (result.isConfirmed) {
+
+                                                        $('#alert-hapus').attr('action', `/${route}/${id}`)
+                                                        $('#alert-hapus').submit()
+                                                    }
+                                                });
+                                            }
+                                        </script>
+                                        @method('delete')
+                                        @csrf
+                                        <a href="#" class="btn btn-danger"
+                                            onclick="konfirmasiHapus('admin/hapus-anggota',{{ $data->id_anggota }})"><i
+                                                class="fa fa-trash mr-1"></i>Hapus
+                                        </a>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

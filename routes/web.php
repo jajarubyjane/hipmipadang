@@ -4,9 +4,11 @@ use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SejarahController;
+use App\Http\Controllers\UsahaController;
 use App\Http\Controllers\VisimisiController;
 use Illuminate\Support\Facades\Route;
 
@@ -98,7 +100,23 @@ Route::get('admin/hapus-divisi/{id}', [AnggotaController::class, 'hapusDivisi'])
 Route::get('admin/ubah-divisi/{id}', [AnggotaController::class, 'ubahDivisi'])->name('admin.ubah.divisi');
 Route::post('admin/edit-divisi/{id}', [AnggotaController::class, 'editDivisi'])->name('admin.edit.divisi');
 
+//usaha
+Route::get('admin/usaha', [UsahaController::class, 'index'])->name('admin.data.usaha');
+Route::get('admin/tambah-usaha', [UsahaController::class, 'tambah'])->name('admin.tambah.usaha');
+Route::post('admin/input-usaha', [UsahaController::class, 'input'])->name('admin.input.usaha');
+Route::get('admin/ubah-usaha/{id}', [UsahaController::class, 'ubah'])->name('admin.ubah.usaha');
+Route::post('admin/edit-usaha/{id}', [UsahaController::class, 'edit'])->name('admin.edit.usaha');
+Route::get('admin/hapus-usaha/{id}', [UsahaController::class, 'hapus'])->name('admin.hapus.usaha');
+
+//kegiatan
+Route::get('admin/kegiatan', [KegiatanController::class, 'index'])->name('admin.data.kegiatan');
+Route::get('admin/tambah-kegiatan', [KegiatanController::class, 'tambah'])->name('admin.tambah.kegiatan');
+Route::post('admin/input-kegiatan', [KegiatanController::class, 'input'])->name('admin.input.kegiatan');
+Route::get('admin/ubah-kegiatan/{id}', [KegiatanController::class, 'ubah'])->name('admin.ubah.kegiatan');
+Route::post('admin/edit-kegiatan/{id}', [KegiatanController::class, 'edit'])->name('admin.edit.kegiatan');
+Route::get('admin/hapus-kegiatan/{id}', [KegiatanController::class, 'hapus'])->name('admin.hapus.kegiatan');
 });
+
 //blog
 Route::get('blog', [BlogController::class, 'index'])->name('data.blog');
 Route::get('blog/sejarah', [BlogController::class, 'sejarah'])->name('blog.sejarah');
@@ -106,6 +124,9 @@ Route::get('blog/anggota', [BlogController::class, 'anggota'])->name('blog.anggo
 Route::get('blog/berita', [BlogController::class, 'berita'])->name('blog.berita');
 Route::get('blog/visimisi', [BlogController::class, 'visimisi'])->name('blog.visimisi');
 Route::get('blog/kontak', [BlogController::class, 'kontak'])->name('blog.kontak');
+Route::get('blog/kegiatan', [BlogController::class, 'kegiatan'])->name('blog.kegiatan');
+Route::get('blog/list-usaha', [BlogController::class, 'listusaha'])->name('blog.list-usaha');
+Route::get('blog/join', [BlogController::class, 'join'])->name('blog.join');
 Route::get('/blog/{slug}', [BlogController::class, 'detail'])->name('blog.detail');
 
 

@@ -64,12 +64,13 @@
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     <small class="me-3 text-white"><i class="fa fa-phone-alt me-2"></i>+62 811-88-6787</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>hipmisumbar21@gmail.com</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>hipmipadang@gmail.com</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <button href="#" class="btn btn-outline-light btn-sm"
+                    <button onclick="window.location.href='{{ route('blog.join') }}'"
+                        class="btn btn-outline-light btn-sm"
                         style="height: 40px; line-height: 30px; margin-right: 10px;">Masuk/Daftar</button>
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
                             class="fab fa-twitter fw-normal"></i></a>
@@ -114,8 +115,10 @@
                             <a href="{{ route('blog.anggota') }}" class="dropdown-item">Struktur Kepengurusan</a>
                         </div>
                     </div>
-                    <a href="{{ route('blog.berita') }}" class="nav-item nav-link fs-6">Berita & Kegiatan</a>
-                    <a href="#" class="nav-item nav-link fs-6">List Usaha</a>
+                    <a href="{{ route('blog.berita') }}" class="nav-item nav-link fs-6">Berita</a>
+                    <a href="{{route('blog.kegiatan')}}" class="nav-item nav-link fs-6">Agenda</a>
+                    <a href="#" class="nav-item nav-link fs-6">Anggota</a>
+                    <a href="{{ route('blog.list-usaha') }}" class="nav-item nav-link fs-6">Sektor Usaha</a>
                     <a href="{{route('blog.kontak')}}" class="nav-item nav-link fs-6">Kontak</a>
                 </div>
             </div>
@@ -147,9 +150,7 @@
                                 style="height: 50px; width: auto;">
                             <h1 class="m-0 text-white fs-4">HIPMI PADANG</h1>
                         </a>
-                        <p class="mt-3 mb-4">Lorem diam sit erat dolor elitr et, diam lorem justo amet clita stet eos
-                            sit. Elitr dolor duo lorem, elitr clita ipsum sea. Diam amet erat lorem stet eos. Diam amet
-                            et kasd eos duo.</p>
+                        <p class="mt-3 mb-4">Hipmi Padang, organisasi pengusaha muda, menjadi kekuatan di ranah ekonomi Sumatra Barat. Dengan semangat kolaboratif, Hipmi Padang memajukan usaha lokal, mewujudkan pertumbuhan ekonomi yang inklusif.</p>
                         <form action="">
                             <div class="input-group">
                                 <input type="text" class="form-control border-white p-3" placeholder="Your Email">
@@ -211,9 +212,13 @@
                                 <a class="mb-2" style="color: black" href="#"><i
                                         class="bi bi-arrow-right text-dark me-2"></i>Tentang</a>
                                 <a class="mb-2" style="color: black" href="{{route('blog.sejarah')}}"><i
-                                        class="bi bi-arrow-right text-dark me-2"></i>Berita dan Kegiatan</a>
+                                        class="bi bi-arrow-right text-dark me-2"></i>Berita</a>
+                                <a class="mb-2" style="color: black" href="{{route('blog.kegiatan')}}"><i
+                                        class="bi bi-arrow-right text-dark me-2"></i>Agenda</a>
                                 <a class="mb-2" style="color: black" href="{{route('blog.berita')}}"><i
-                                        class="bi bi-arrow-right text-dark me-2"></i>List Usaha</a>
+                                        class="bi bi-arrow-right text-dark me-2"></i>Anggota</a>
+                                <a class="mb-2" style="color: black" href="{{route('blog.list-usaha')}}"><i
+                                        class="bi bi-arrow-right text-dark me-2"></i>Sektor Usaha</a>
                                 <a class="mb-2" style="color: black" href="{{route('blog.kontak')}}"><i
                                         class="bi bi-arrow-right text-dark me-2"></i>Kontak</a>
                             </div>

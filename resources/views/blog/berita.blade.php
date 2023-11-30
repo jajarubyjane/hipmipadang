@@ -1,16 +1,16 @@
 @extends('blog.main')
 @section('title')
-    Berita dan Kegiatan HIPMI Padang
+    Berita - HIPMI Padang
 @endsection
 
 @section('content')
     <div class="container-fluid py-5 bg-header" style="margin-bottom: 90px;">
         <div class="row py-5">
             <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                <h1 class="display-4 text-white animated zoomIn">Berita dan Kegiatan</h1>
-                <a href="" class="h5 text-white">Home</a>
+                <h1 class="display-4 text-white animated zoomIn">Berita</h1>
+                <a href="" class="h5 text-white">Beranda</a>
                 <i class="far fa-circle text-white px-2"></i>
-                <a href="" class="h5 text-white">Berita dan Kegiatan</a>
+                <a href="" class="h5 text-white">Berita</a>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@
                                 <div class="blog-item rounded overflow-hidden"
                                     style="background: rgba(128, 128, 128, 0.1);">
                                     <div class="blog-img position-relative overflow-hidden">
-                                        <img class="img-fluid" src="{{ asset('assets/images/' . $data->gambar_berita) }}"
+                                        <img class="img-fluid p-3" src="{{ asset('assets/images/' . $data->gambar_berita) }}"
                                             alt="">
                                         <a class="position-absolute top-0 start-0 text-dark rounded-end mt-5 py-2 px-4"
                                             style="background-color: #FFE500;" href="">{{ $data->nama_kategori }}</a>
@@ -42,9 +42,9 @@
                                                     class="far fa-calendar-alt text-warning me-2"></i>{{ $tanggal_berita }}</small>
                                         </div>
                                         <h4 class="mb-3">{{ $data->judul_berita }}</h4>
-                                        <p>{!! Illuminate\Support\Str::limit($data->isi_berita, 150, '...') !!}</p>
+                                        <p>{!! Illuminate\Support\Str::limit($data->isi_berita, 140, '...') !!}</p>
                                         <a href="{{route('blog.detail', $data->slug)}}" class="btn btn-dark py-2 px-4" style="background-color: #FFD700; color: black; border: none;">
-                                            Read More
+                                            Baca Selengkapnya
                                             <i class="bi bi-arrow-right" style="margin-left: 5px;"></i>
                                         </a>
                                     </div>
@@ -63,7 +63,7 @@
                                 </div>
                                 <h4 class="mb-3">How to build a website</h4>
                                 <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                                <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>
+                                <a class="text-uppercase" href="">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
                     </div> --}}
@@ -75,12 +75,13 @@
                 <!-- Sidebar Start -->
                 <div class="col-lg-4">
                     <!-- Search Form Start -->
-                    {{-- <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                    <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                        <form id="searchForm" action="{{ route('blog.berita') }}" method="GET">
                         <div class="input-group">
-                            <input type="text" class="form-control p-3" placeholder="Keyword">
-                            <button class="btn btn-dark px-4"><i class="bi bi-search"></i></button>
+                            <input name="keyword" type="text" class="form-control p-3" placeholder="Keyword">
+                            <button class="btn btn-dark px-4"><i class="bi bi-search text-white"></i></button>
                         </div>
-                    </div> --}}
+                    </div>
                     <!-- Search Form End -->
 
                     <!-- Category Start -->
@@ -160,10 +161,7 @@
                             <h4 class="mb-0">HIPMI Quote</h4>
                         </div>
                         <div class="text-center" style="padding: 30px; background: rgba(128, 128, 128, 0.1);">
-                            <p>Vero sea et accusam justo dolor accusam lorem consetetur, dolores sit amet sit dolor clita
-                                kasd justo, diam accusam no sea ut tempor magna takimata, amet sit et diam dolor ipsum amet
-                                diam</p>
-                            <a href="" class="btn py-2 px-4 text-white" style="background: black;">Read More</a>
+                            <p>"Jangan menunggu agar kesempatan datang, tapi ciptakan momen agar kesempatan itu datang kepada kita"<br>#BERAKSI <br>-Agung Hariyona- <br>Ketua Umum BPC HIPMI Padang</p>
                         </div>
                     </div>
                     <!-- Plain Text End -->

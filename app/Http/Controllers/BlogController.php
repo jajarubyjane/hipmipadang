@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Anggotas;
 use App\Models\Beritas;
 use App\Models\Kategoris;
+use App\Models\Kegiatans;
 use App\Models\Kontaks;
 use App\Models\Sejarahs;
+use App\Models\Usahas;
 use App\Models\VisiMisis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class BlogController extends Controller
 {
@@ -52,10 +55,20 @@ class BlogController extends Controller
             $kategoriTerpilih = $request->input('kategori');
             $query->where('kategori.nama_kategori', $kategoriTerpilih);
         }
+
+        // Tambahkan kondisi untuk pencarian berdasarkan keyword
+        if ($request->has('keyword')) {
+            $keyword = $request->input('keyword');
+            $query->where(function ($q) use ($keyword) {
+                $q->where('berita.judul_berita', 'like', "%$keyword%")->orWhere('berita.isi_berita', 'like', "%$keyword%");
+            });
+        }
+
         $data['berita'] = $query->get();
 
         return view('blog.berita', $data);
     }
+
     public function anggota()
     {
         $data['anggota'] = Anggotas::all();
@@ -75,13 +88,12 @@ class BlogController extends Controller
     public function detail($id)
     {
         $data['berita'] = Beritas::where('slug', $id)->first();
-        $data['kategori'] = Kategoris::all(); // Menambahkan variabel $kategori
+        $data['kategori'] = Kategoris::all()->sortBy('nama_kategori'); // Menambahkan variabel $kategori
 
         // Ambil semua berita (untuk recent post)
         $data['recentPosts'] = Beritas::latest()
             ->take(5)
             ->get();
-
 
         $data['gambar'] = Beritas::latest();
 
@@ -92,5 +104,19 @@ class BlogController extends Controller
         $data['kontak'] = Kontaks::all();
 
         return view('blog.kontak', $data);
+    }
+    public function listusaha()
+    {
+        $data['usaha'] = Usahas::all();
+        return view('blog.list-usaha', $data);
+    }
+    public function kegiatan()
+    {
+        $data['kegiatan'] = Kegiatans::all();
+        return view('blog.kegiatan', $data);
+    }
+    public function join()
+    {
+        return view('blog.join');
     }
 }

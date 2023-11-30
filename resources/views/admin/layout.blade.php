@@ -165,6 +165,18 @@
                                         <span class="hide-menu">Berita</span>
                                     </a>
                                 </li>
+                                <li class="sidebar-item">
+                                    <a href="{{route('admin.data.kegiatan')}}" class="sidebar-link">
+                                        <i class="fas fa-briefcase"></i>
+                                        <span class="hide-menu">Kegiatan</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{route('admin.data.usaha')}}" class="sidebar-link">
+                                        <i class="mdi mdi-briefcase"></i>
+                                        <span class="hide-menu">List Usaha</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="sidebar-item">

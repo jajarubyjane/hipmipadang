@@ -39,57 +39,73 @@
             <div class="row g-5">
                 @foreach ($visimisi as $data)
                     <div class="col-lg-6">
-                        <div class="card h-100 shadow ">
+                        <div class="card h-100 shadow clickable" onclick="toggleColor(this)">
                             <div class="card-body">
                                 <div class="section-title text-center position-relative pb-3 mb-5">
-                                    <h1 class="fw-bold text-warning text-uppercase">Visi</h1>
+                                    <h1 class="fw-bold text-uppercase">Visi</h1>
                                 </div>
                                 <p class="card-text mb-4">{!! $data->visi !!}</p>
-                                <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
-                                </div>
+                                <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="card h-100 shadow">
+                        <div class="card h-100 shadow clickable" onclick="toggleColor(this)">
                             <div class="card-body">
                                 <div class="section-title position-relative pb-3 mb-5 text-center">
-                                    <h1 class="fw-bold text-warning text-uppercase">Misi</h1>
+                                    <h1 class="fw-bold text-uppercase">Misi</h1>
                                 </div>
                                 <p class="card-text mb-4">{!! $data->misi !!}</p>
-                                <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
-                                </div>
+                                <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s"></div>
                             </div>
                         </div>
                     </div>
                 @endforeach
 
-            <div class="col-lg-12" style="margin-top: 6rem">
-                <h3 class="fw-bold text-warning text-uppercase mb-4">Tentang Lainnya</h3>
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="{{ route('blog.sejarah') }}" class="text-decoration-none" style="color: black; transition: color 0.3s ease;">
-                            <i class="fas fa-chevron-right me-2"></i> Sejarah
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('blog.anggota') }}" class="text-decoration-none" style="color: black; transition: color 0.3s ease;">
-                            <i class="fas fa-chevron-right me-2"></i> Struktur Kepengurusan
-                        </a>
-                    </li>
-                </ul>
-                <style>
-                    .text-decoration-none:hover {
-                        color: #ffcc00; /* Warna saat hover, sesuaikan dengan warna yang diinginkan */
-                    }
-
-                    .text-decoration-none:hover i {
-                        color: #ffcc00; /* Warna panah saat hover */
-                    }
-                </style>
+                <div class="col-lg-12" style="margin-top: 6rem">
+                    <h3 class="fw-bold text-warning text-uppercase mb-4">Tentang Lainnya</h3>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="{{ route('blog.sejarah') }}" class="text-decoration-none"
+                                style="color: black; transition: color 0.3s ease;">
+                                <i class="fas fa-chevron-right me-2"></i> Sejarah
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('blog.anggota') }}" class="text-decoration-none"
+                                style="color: black; transition: color 0.3s ease;">
+                                <i class="fas fa-chevron-right me-2"></i> Struktur Kepengurusan
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleColor(element) {
+            element.classList.toggle('active');
+        }
+    </script>
+
+    <style>
+        .clickable {
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .clickable:hover {
+            background-color: #ffcc00;
+            color: #000;
+        }
+
+        .clickable.active {
+            background-color: #000;
+            color: #ffcc00;
+        }
+    </style>
+
     <!-- About End -->
     </div>
 @endsection
