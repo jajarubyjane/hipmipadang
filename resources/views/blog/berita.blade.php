@@ -22,51 +22,30 @@
             <div class="row g-5">
                 <!-- Blog list Start -->
                 <div class="col-lg-8">
-                    <div class="row g-5">
+                    <div class="row g-4">
                         @foreach ($berita as $data)
-                            <div class="col-md-6 wow slideInUp" data-wow-delay="0.5s">
-                                <div class="blog-item rounded overflow-hidden"
-                                    style="background: rgba(128, 128, 128, 0.1);">
-                                    <div class="blog-img position-relative overflow-hidden">
-                                        <img class="img-fluid p-3" src="{{ asset('assets/images/' . $data->gambar_berita) }}"
-                                            alt="">
-                                        <a class="position-absolute top-0 start-0 text-dark rounded-end mt-5 py-2 px-4"
+                            <div class="col-md-6">
+                                <div class="card border-0 rounded-3 shadow-sm h-100" style="background: rgba(128, 128, 128, 0.1);"">
+                                    <div class="position-relative overflow-hidden">
+                                        <img class="img-fluid p-2" src="{{ asset('assets/images/' . $data->gambar_berita) }}" alt="">
+                                        <a class="position-absolute top-0 start-0 text-dark rounded-end mt-3 px-2 py-1"
                                             style="background-color: #FFE500;" href="">{{ $data->nama_kategori }}</a>
                                     </div>
-                                    <div class="p-4">
-                                        <div class="d-flex mb-3">
-                                            @php
-                                                $tanggal_berita = date('d F Y', strtotime($data->tanggal_berita));
-                                            @endphp
-                                            <small><i
-                                                    class="far fa-calendar-alt text-warning me-2"></i>{{ $tanggal_berita }}</small>
-                                        </div>
-                                        <h4 class="mb-3">{{ $data->judul_berita }}</h4>
-                                        <p>{!! Illuminate\Support\Str::limit($data->isi_berita, 140, '...') !!}</p>
-                                        <a href="{{route('blog.detail', $data->slug)}}" class="btn btn-dark py-2 px-4" style="background-color: #FFD700; color: black; border: none;">
+                                    <div class="card-body">
+                                        <small class="text-muted">
+                                            <i class="far fa-calendar-alt text-warning me-2"></i>
+                                            {{ date('d F Y', strtotime($data->tanggal_berita)) }}
+                                        </small>
+                                        <h5 class="card-title mt-3">{{ $data->judul_berita }}</h5>
+                                        <p class="card-text">{!! Illuminate\Support\Str::limit($data->isi_berita, 140, '...') !!}</p>
+                                        <a href="{{ route('blog.detail', $data->slug) }}" class="btn btn-dark py-2 px-4"
+                                            style="background-color: #FFD700; color: black; border: none;">
                                             Baca Selengkapnya
                                             <i class="bi bi-arrow-right" style="margin-left: 5px;"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="col-md-6 wow slideInUp" data-wow-delay="0.6s">
-                        <div class="blog-item bg-light rounded overflow-hidden">
-                            <div class="blog-img position-relative overflow-hidden">
-                                <img class="img-fluid" src="/../assets2/img/blog-2.jpg" alt="">
-                                <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a>
-                            </div>
-                            <div class="p-4">
-                                <div class="d-flex mb-3">
-                                    <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
-                                    <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
-                                </div>
-                                <h4 class="mb-3">How to build a website</h4>
-                                <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                                <a class="text-uppercase" href="">Baca Selengkapnya <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div> --}}
                         @endforeach
                     </div>
                 </div>

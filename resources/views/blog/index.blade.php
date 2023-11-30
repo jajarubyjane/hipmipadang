@@ -52,10 +52,10 @@
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner"
+    {{-- <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner"></div>
-    </div>
+    </div> --}}
     <!-- Spinner End -->
 
 
@@ -125,7 +125,7 @@
                     </div>
                     <a href="{{ route('blog.berita') }}" class="nav-item nav-link fs-6">Berita</a>
                     <a href="{{ route('blog.kegiatan') }}" class="nav-item nav-link fs-6">Agenda</a>
-                    <a href="#" class="nav-item nav-link fs-6">Anggota</a>
+                    {{-- <a href="#" class="nav-item nav-link fs-6">Anggota</a> --}}
                     <a href="{{ route('blog.list-usaha') }}" class="nav-item nav-link fs-6">Sektor Usaha</a>
                     <a href="{{ route('blog.kontak') }}" class="nav-item nav-link fs-6">Kontak</a>
 
@@ -136,7 +136,7 @@
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="assets2/img/carousel-3.png" alt="Image">
+                    <img class="w-100" src="assets2/img/carousel-3.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="width: 100%;">
                             <h5 class="text-white text-uppercase mb-3 animated slideInDown">Bangkit dan Maju Bersama

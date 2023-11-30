@@ -51,10 +51,10 @@
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner"
+    {{-- <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner"></div>
-    </div>
+    </div> --}}
     <!-- Spinner End -->
 
 
@@ -117,7 +117,7 @@
                     </div>
                     <a href="{{ route('blog.berita') }}" class="nav-item nav-link fs-6">Berita</a>
                     <a href="{{route('blog.kegiatan')}}" class="nav-item nav-link fs-6">Agenda</a>
-                    <a href="#" class="nav-item nav-link fs-6">Anggota</a>
+                    {{-- <a href="#" class="nav-item nav-link fs-6">Anggota</a> --}}
                     <a href="{{ route('blog.list-usaha') }}" class="nav-item nav-link fs-6">Sektor Usaha</a>
                     <a href="{{route('blog.kontak')}}" class="nav-item nav-link fs-6">Kontak</a>
                 </div>
